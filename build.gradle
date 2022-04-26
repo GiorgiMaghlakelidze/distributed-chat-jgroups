@@ -10,9 +10,6 @@ repositories {
 }
 
 jar {
-    manifest {
-        attributes 'Main-Class': 'pt.ipb.dsys.peerbox.Main'
-    }
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
