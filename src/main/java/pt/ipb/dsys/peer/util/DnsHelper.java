@@ -7,8 +7,7 @@ public class DnsHelper {
 
     public static String getHostName() {
         try {
-            InetAddress ip = InetAddress.getLocalHost();
-            return ip.getHostName();
+            return InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
