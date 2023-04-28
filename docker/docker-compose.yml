@@ -1,0 +1,4 @@
+version: '3'
+
+# declare your services below
+services:
