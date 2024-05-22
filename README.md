@@ -9,7 +9,7 @@ Requirements:
 1. Star the `Gossip Router` (use run configuration: *Start Gossip Router*):
    - This will run the `org.jgroups.stack.GossipRouter` class _locally_ on port `12001`.
 2. Complete the class `pt.ipb.dsys.peer.PeerMain`:
-   - Create a `JChannel` to connect to the `Gossip Router` at `gossip-router:12001`
+   - Create a `JChannel` to connect to the `Gossip Router` at `127.0.0.1:12001`
      - Use `DefaultProtocols.gossipRouter` to generate the list of `org.jgroups.stack.Protocol` needed
 3. Configure the channel so that:
    - Each peer `discards` his own messages
