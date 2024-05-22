@@ -13,8 +13,8 @@ Requirements:
      - Use `DefaultProtocols.gossipRouter` to generate the list of `org.jgroups.stack.Protocol` needed
 3. Configure the channel so that:
    - Each peer `discards` his own messages
-   - Connect (`connect`) to a cluster with the name `PeerCluster`
-4. Create a class (`extends org.jgroups.Receiver`) to use as the `receiver` responsible for _handling_ all events on the _cluster_
+   - Connect (`connect`) to a cluster with the name `PeerCluster` (constant `CLUSTER_NAME`)
+4. Use the class `pt.ipb.dsys.peer.RumourHandler` (`implements org.jgroups.Receiver`) to use as the `receiver` responsible for _handling_ all events on the _cluster_
 
 ### Receiver
 
@@ -27,8 +27,9 @@ To _capture_ this events you can simply, in your `Receiver` implementation _over
 The `receiver` should:
 1. Keep a local list of all the members in the _cluster_;
 2. Anytime a member (except self) arrives at the _cluster_ (event `viewAccepted`) spread the rumour:
-    - _Darth Vader is Luke's father..._
-    - _Suggestion_: Use the `pt.ipb.dsys.peer.model.Rumour` class to encapsulate the message and keep count of how many times the rumour was spread
+   - _Darth Vader is Luke's father..._
+     <div><small><i>Suggestion</i>: Use the <code>pt.ipb.dsys.peer.model.Rumour</code> class to encapsulate the message</small></div>
+   - Keep count of how many times the rumour was spread
 3. Anytime a new message arrives (event `receive`) _broadcast_ the message to all the _cluster_ 
 
 ## Challenge 2
