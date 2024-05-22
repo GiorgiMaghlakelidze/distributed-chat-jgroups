@@ -1,6 +1,11 @@
 package pt.ipb.dsys.peer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class PeerMain {
+
+  private static final Logger logger = LoggerFactory.getLogger(PeerMain.class);
 
   public static final String CLUSTER_NAME = "PeerCluster";
 
