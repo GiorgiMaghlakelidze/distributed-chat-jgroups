@@ -51,7 +51,15 @@ Upon completion, a file named `ds-jgroups-demo-1.0-SNAPSHOT.jar` should be creat
 
 - Since the `ds-jgroups-demo-1.0-SNAPSHOT.jar` file is outside docker you're going to need a volume on both services to access it (with `java -jar ...`);
 - For better isolation try and declare a network (`peer-network`) and include both services on that network.
-- Instead of `System.out` try and use the 
+- Instead of `System.out` try and use the [SLF4J](https://www.slf4j.org/manual.html#hello_world) logger, example:
+```java
+// In the body of your class (ex.: MyClass)
+private static final Logger logger = LoggerFactory.getLogger(MyClass.class);
+
+// in your code
+int x = 1;
+logger.info("Variable x is {}", x); // outputs: Variable x is 1
+```
 
 ## Challenge 3
 
